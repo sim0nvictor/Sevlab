@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEV Lab - Web3 Marketing Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/34a04d4400.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+        }
+        
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="gradient-bg text-white overflow-x-hidden">
+    <!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-black/20 backdrop-blur-md border-b border-purple-500/20">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    
+    <!-- Logo and Brand -->
+    <div class="flex items-center">
+      <img src="sev.png" alt="SEV Logo" class="h-10 w-auto" />
+      <span class="ml-2 font-bold text-lg text-white">SEVlab</span>
+    </div>
+
+    <!-- Nav Links -->
+    <div class="hidden md:flex space-x-8 text-white">
+      <a href="#about" class="hover:text-purple-400 transition-colors">About</a>
+      <a href="#services" class="hover:text-purple-400 transition-colors">Services</a>
+      <a href="#why-us" class="hover:text-purple-400 transition-colors">Why Us</a>
+      <a href="#contact" class="hover:text-purple-400 transition-colors">Contact</a>
+    </div>
+
+  </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-blue-900/20"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="fade-in">
+                <!-- Logo Placeholder -->
+                <div class="w-32 h-32 mx-auto mb-8 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center neon-glow floating">
+                    <span class="text-4xl font-bold">
+                      <video autoplay muted loop playsinline class="w-full h-auto rounded-2xl shadow-2xl">
+                    <source src="S.mp4" type="video/mp4">
+                           Your browser does not support the video tag.
+                    </video>
+                   </span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 neon-text">
+                    SEV Lab
+                </h1>
+                
+                <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
+                    We amplify your project so you can focus on building.
+                </p>
+                
+                <a href="#contact" class="inline-block bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 neon-glow">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-10 w-4 h-4 bg-purple-500 rounded-full opacity-50 floating" style="animation-delay: 0s;"></div>
+        <div class="absolute top-40 right-20 w-6 h-6 bg-blue-500 rounded-full opacity-30 floating" style="animation-delay: 1s;"></div>
+        <div class="absolute bottom-20 left-20 w-8 h-8 bg-purple-400 rounded-full opacity-40 floating" style="animation-delay: 2s;"></div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8 neon-text">About Us</h2>
+                <p class="text-lg md:text-xl text-gray-300 leading-relaxed">
+                    At SEV Lab, we're passionate about empowering Web3 projects to reach their full potential. 
+                    Our mission is to provide comprehensive marketing solutions that drive growth, build communities, 
+                    and amplify your brand's voice in the decentralized ecosystem. We combine cutting-edge strategies 
+                    with deep industry knowledge to deliver results that matter.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-black/20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8 neon-text">Our Services</h2>
+                <p class="text-xl text-gray-300">Comprehensive Web3 marketing solutions tailored for your success</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-card p-6 rounded-xl hover:neon-glow transition-all duration-300 fade-in">
+                    <div class="text-3xl mb-4"><i class="fa-brands fa-x-twitter"></i></div>
+                    <h3 class="text-xl font-semibold mb-3 text-purple-400">Twitter Growth</h3>
+                    <p class="text-gray-300">Organic follower growth and engagement strategies to build your Twitter presence.</p>
+                </div>
+                
+                <div class="glass-card p-6 rounded-xl hover:neon-glow transition-all duration-300 fade-in">
+                    <div class="text-3xl mb-4"><i class="fa-solid fa-comment"></i></div>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-400">Discord & Telegram Management</h3>
+                    <p class="text-gray-300">Community building and management across Discord and Telegram platforms.</p>
+                </div>
+                
+                <div class="glass-card p-6 rounded-xl hover:neon-glow transition-all duration-300 fade-in">
+                    <div class="text-3xl mb-4"><i class="fa-solid fa-bullhorn"></i></div>
+                    <h3 class="text-xl font-semibold mb-3 text-purple-400">Project Shilling</h3>
+                    <p class="text-gray-300">Strategic promotion and awareness campaigns to maximize your project's reach.</p>
+                </div>
+                
+                <div class="glass-card p-6 rounded-xl hover:neon-glow transition-all duration-300 fade-in">
+                    <div class="text-3xl mb-4">✍️</div>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-400">Content Creation</h3>
+                    <p class="text-gray-300">High-quality content that resonates with your audience and drives engagement.</p>
+                </div>
+                
+                <div class="glass-card p-6 rounded-xl hover:neon-glow transition-all duration-300 fade-in">
+                    <div class="text-3xl mb-4"><i class="fa-regular fa-handshake"></i></div>
+                    <h3 class="text-xl font-semibold mb-3 text-purple-400">Influencer Outreach</h3>
+                    <p class="text-gray-300">Connect with key influencers to amplify your message and expand your reach.</p>
+                </div>
+                
+                <div class="glass-card p-6 rounded-xl hover:neon-glow transition-all duration-300 fade-in">
+                    <div class="text-3xl mb-4"><i class="fa-solid fa-palette"></i></div>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-400">Graphic Design</h3>
+                    <p class="text-gray-300">Eye-catching banners, stickers, and visual assets that represent your brand.</p>
+                </div>
+                
+                <div class="glass-card p-6 rounded-xl hover:neon-glow transition-all duration-300 fade-in md:col-span-2 lg:col-span-1">
+                    <div class="text-3xl mb-4">📊</div>
+                    <h3 class="text-xl font-semibold mb-3 text-purple-400">Data Analysis</h3>
+                    <p class="text-gray-300">Comprehensive analytics and insights to optimize your marketing performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8 neon-text">Why Choose Us</h2>
+                <p class="text-xl text-gray-300">What sets us apart in the Web3 marketing landscape</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center fade-in">
+                    <div class="text-6xl mb-4"><i class="fa-solid fa-rocket"></i></div>
+                    <h3 class="text-xl font-semibold mb-3 text-purple-400">Proven Web3 Strategies</h3>
+                    <p class="text-gray-300">Battle-tested methods that deliver real results in the crypto space.</p>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="text-6xl mb-4">🧠</div>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-400">Creative Team</h3>
+                    <p class="text-gray-300">Innovative minds that think outside the box to make your project stand out.</p>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="text-6xl mb-4"><i class="fa-solid fa-arrow-up-right-dots"></i></div>
+                    <h3 class="text-xl font-semibold mb-3 text-purple-400">Growth Focus</h3>
+                    <p class="text-gray-300">Every strategy is designed with sustainable growth and ROI in mind.</p>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="text-6xl mb-4"><i class="fa-solid fa-handshake"></i></div>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-400">Transparent</h3>
+                    <p class="text-gray-300">Clear communication and regular updates keep you informed every step of the way.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black/20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8 neon-text">Get In Touch</h2>
+                <p class="text-xl text-gray-300">Ready to amplify your Web3 project? Let's talk!</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Contact Info -->
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold mb-6 text-purple-400">Contact Information</h3>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-2xl"><i class="fa-solid fa-envelope"></i></span>
+                            <a href="mailto:sevmediax@gmail.com" class="text-blue-400 hover:text-blue-300 transition-colors">sevmediax@gmail.com</a>
+                        </div>
+                        
+                        <div class="flex items-center space-x-3">
+                            <span class="text-2xl"><i class="fa-brands fa-x-twitter"></i></span>
+                            <a href="https://twitter.com/SevLabx" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors">@SevLabx</a>
+                        </div>
+                        
+                        <div class="flex items-center space-x-3">
+                            <span class="text-2xl">founder</span>
+                            <a href="https://twitter.com/SevMetaX" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors">@SevMetaX</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="fade-in">
+                    <form class="glass-card p-8 rounded-xl">
+                        <div class="mb-6">
+                            <label for="name" class="block text-sm font-medium mb-2 text-gray-300"> Project Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:border-purple-500 focus:outline-none transition-colors text-white placeholder-gray-400" placeholder="Your Project Name" required>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="xhandle" class="block text-sm font-medium mb-2 text-gray-300">x handle</label>
+                            <input type="xhandle" id="xhandle" name="xhandle" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:border-purple-500 focus:outline-none transition-colors text-white placeholder-gray-400" placeholder="your x handle" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="Telegram" class="block text-sm font-medium mb-2 text-gray-300">Telegram handle link</label>
+                            <input type="Telegram" id="Telegram" name="Telegram" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:border-purple-500 focus:outline-none transition-colors text-white placeholder-gray-400" placeholder="telegram handle" required>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium mb-2 text-gray-300">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:border-purple-500 focus:outline-none transition-colors text-white placeholder-gray-400 resize-none" placeholder="Tell us about your project..." required></textarea>
+                        </div>
+                       <div class="mb-6">
+                            <label for="budget" class="block text-sm font-medium mb-2 text-gray-300">Budget</label>
+                            <input id="number" type="number" min="5" max="5000" name="number" required placeholder="5-50k"/>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                            Send
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-2xl font-bold neon-text mb-4 md:mb-0">SEV Lab</div>
+                
+                <div class="flex space-x-6 mb-4 md:mb-0">
+                    <a href="https://twitter.com/SevLabx" target="_blank" class="text-gray-400 hover:text-purple-400 transition-colors text-2xl"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://twitter.com/SevMetaX" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors text-2xl"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="mailto:sevmediax@gmail.com" class="text-gray-400 hover:text-purple-400 transition-colors text-2xl"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+                
+                <div class="text-gray-500 text-sm">
+                    © 2025 SEV Lab. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll behavior for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
