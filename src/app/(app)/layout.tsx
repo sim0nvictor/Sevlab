@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import { AppFooter } from "@/components/shell/footer";
 import { MobileNav } from "@/components/shell/mobile-nav";
 import { Navbar } from "@/components/shell/navbar";
 import { Sidebar } from "@/components/shell/sidebar";
@@ -41,6 +42,7 @@ export default async function AppLayout({
           {children}
         </main>
         <MobileNav />
+        <AppFooter />
       </div>
     </div>
   );
