@@ -3,11 +3,11 @@ import { type Metadata } from "next";
 import { BrandLogo } from "@/components/brand-logo";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE } from "@/lib/site-meta";
 
 export const metadata: Metadata = {
-  title: "Build. Share. Find partners. | Sevlab",
-  description:
-    "Sevlab is a focused space for builders anywhere in the world to show what they are making, ask for help when they get stuck, and find partners to build with.",
+  title: `${SITE_TAGLINE} | ${SITE_NAME}`,
+  description: SITE_DESCRIPTION,
 };
 
 const features = [
@@ -77,7 +77,7 @@ export default function LandingPage() {
                 Builders worldwide
               </Badge>
               <h1 className="mt-5 font-[var(--font-heading)] text-4xl font-bold text-white sm:text-6xl">
-                Build. Share. Find partners.
+                {SITE_TAGLINE}
               </h1>
               <p className="mt-5 max-w-xl text-base leading-7 text-[var(--muted-foreground)] sm:text-lg">
                 Building something on your own is hard, wherever you are.

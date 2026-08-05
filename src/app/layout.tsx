@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
 import { Manrope, Space_Grotesk } from "next/font/google";
+import {
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TAGLINE,
+  SITE_TWITTER_HANDLE,
+} from "@/lib/site-meta";
+import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -12,24 +19,46 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-heading",
 });
 
+const socialTitle = `${SITE_NAME} - ${SITE_TAGLINE}`;
+
 export const metadata: Metadata = {
-  title: {
-    default: "Sevlab",
-    template: "%s | Sevlab",
+  // Resolves relative Open Graph and canonical URLs against the real domain
+  // in production instead of falling back to localhost.
+  metadataBase: new URL(getSiteUrl()),
+
+  // Deliberately a plain string rather than a { default, template } pair:
+  // every page sets its own full "... | Sevlab" title, so a template would
+  // render the suffix twice.
+  title: socialTitle,
+  description: SITE_DESCRIPTION,
+  keywords: [
+    "build in public",
+    "indie hackers",
+    "side projects",
+    "developer community",
+    "find a technical co-founder",
+    "find collaborators",
+    "creator partnerships",
+    "get unstuck",
+  ],
+  authors: [{ name: SITE_NAME }],
+  alternates: {
+    canonical: "/",
   },
-  description: "A mobile-first community platform for African self-taught developers to share projects, get unstuck, and find collaborators.",
-  keywords: ["African developers", "self-taught programmers", "tech community Africa", "project sharing", "developer collaboration"],
-  authors: [{ name: "Sevlab" }],
   openGraph: {
-    title: "Sevlab - Build. Share. Get Help.",
-    description: "A focused space for African builders to show what they are creating, ask for help when blocked, and find people to collaborate with.",
+    title: socialTitle,
+    description: SITE_DESCRIPTION,
+    url: "/",
+    siteName: SITE_NAME,
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sevlab - Build. Share. Get Help.",
-    description: "A mobile-first community platform for African developers.",
+    title: socialTitle,
+    description: SITE_DESCRIPTION,
+    site: SITE_TWITTER_HANDLE,
+    creator: SITE_TWITTER_HANDLE,
   },
   icons: {
     icon: [
