@@ -3,11 +3,11 @@ import { type Metadata } from "next";
 import { BrandLogo } from "@/components/brand-logo";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { builders } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Build. Share. Get Help. | Sevlab",
-  description: "Sevlab is a focused space for African builders to show what they are creating, ask for help when blocked, and find people to collaborate with.",
+  title: "Build. Share. Find partners. | Sevlab",
+  description:
+    "Sevlab is a focused space for builders anywhere in the world to show what they are making, ask for help when they get stuck, and find partners to build with.",
 };
 
 const features = [
@@ -19,12 +19,30 @@ const features = [
   {
     title: "Get unstuck faster",
     description:
-      "Ask focused questions, show what you tried, and get help from builders who understand your context.",
+      "Ask focused questions, show what you already tried, and get answers from builders who have hit the same wall.",
   },
   {
-    title: "Find collaborators",
+    title: "Find partners",
     description:
-      "Discover designers, frontend engineers, and backend builders across African tech communities.",
+      "Say what you need - a designer, a backend dev, a co-founder - and connect with creators who want to build it with you.",
+  },
+];
+
+const steps = [
+  {
+    step: "01",
+    title: "Post what you are building",
+    description: "Share the project, the stack, and where you are stuck.",
+  },
+  {
+    step: "02",
+    title: "Ask when you are blocked",
+    description: "Get specific help instead of generic advice.",
+  },
+  {
+    step: "03",
+    title: "Team up",
+    description: "Send a partnership request and build together.",
   },
 ];
 
@@ -34,7 +52,15 @@ export default function LandingPage() {
       <div className="mx-auto max-w-6xl">
         <header className="brand-frame flex items-center justify-between rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-3 backdrop-blur sm:px-6">
           <BrandLogo showWordmark={false} imageClassName="h-14 w-14 rounded-lg" />
-          <div className="flex items-center">
+          <div className="flex items-center gap-2">
+            <Link href="/login">
+              <Button
+                variant="outline"
+                className="h-10 rounded-lg px-4 text-sm font-medium"
+              >
+                Log in
+              </Button>
+            </Link>
             <Link href="/signup">
               <Button className="h-10 rounded-lg px-5 text-sm font-medium">
                 Get Started
@@ -48,15 +74,16 @@ export default function LandingPage() {
           <div className="relative grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div className="max-w-2xl">
               <Badge className="border-[var(--accent)]/30 bg-[var(--accent)]/15 text-white">
-                Builders across Africa
+                Builders worldwide
               </Badge>
               <h1 className="mt-5 font-[var(--font-heading)] text-4xl font-bold text-white sm:text-6xl">
-                Build. Share. Get Help.
+                Build. Share. Find partners.
               </h1>
               <p className="mt-5 max-w-xl text-base leading-7 text-[var(--muted-foreground)] sm:text-lg">
-                Sevlab is a focused space for African builders to show what they
-                are creating, ask for help when blocked, and find people to
-                collaborate with.
+                Building something on your own is hard, wherever you are.
+                Sevlab is a focused space to show what you are making, ask for
+                help when you get stuck, and find people who want to build it
+                with you.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link href="/signup">
@@ -73,34 +100,24 @@ export default function LandingPage() {
             </div>
 
             <div className="surface-card p-5 sm:p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-[var(--muted-foreground)]">
-                    Today on Sevlab
-                  </p>
-                  <p className="mt-1 text-2xl font-semibold text-white">
-                    128 active builders
-                  </p>
-                </div>
-                <Badge className="border-[var(--accent-secondary)]/30 bg-[var(--accent-strong)]/15">
-                  Mobile first
-                </Badge>
-              </div>
+              <p className="text-sm text-[var(--muted-foreground)]">
+                How Sevlab works
+              </p>
               <div className="mt-5 space-y-3">
-                {builders.map((builder) => (
+                {steps.map((item) => (
                   <div
-                    key={builder.id}
-                    className="flex items-center justify-between rounded-2xl border border-white/8 bg-black/20 px-4 py-3"
+                    key={item.step}
+                    className="flex items-start gap-4 rounded-2xl border border-white/8 bg-black/20 px-4 py-3"
                   >
+                    <span className="font-[var(--font-heading)] text-sm font-semibold text-[var(--accent)]">
+                      {item.step}
+                    </span>
                     <div>
-                      <p className="font-medium text-white">{builder.name}</p>
-                      <p className="text-sm text-[var(--muted-foreground)]">
-                        {builder.skills.slice(0, 2).join(" · ")}
+                      <p className="font-medium text-white">{item.title}</p>
+                      <p className="mt-1 text-sm text-[var(--muted-foreground)]">
+                        {item.description}
                       </p>
                     </div>
-                    <span className="text-xs text-[var(--muted-foreground)]">
-                      {builder.country}
-                    </span>
                   </div>
                 ))}
               </div>
@@ -123,8 +140,8 @@ export default function LandingPage() {
 
         <footer className="mt-10 flex flex-col items-start justify-between gap-4 rounded-[28px] border border-white/8 bg-white/[0.03] px-5 py-5 text-sm text-[var(--muted-foreground)] sm:flex-row sm:items-center sm:px-6">
           <p>
-            Built for self-taught developers solving local problems with global
-            ambition.
+            Built for self-taught and independent builders everywhere, solving
+            real problems in public.
           </p>
           <div className="flex items-center gap-4">
             <a
