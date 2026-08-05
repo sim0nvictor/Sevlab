@@ -2,7 +2,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProjectCard } from "@/components/project-card";
 import { Badge } from "@/components/ui/badge";
-import { formatDate } from "@/lib/params";
 import { getBuilder, getCurrentUser, getProjects } from "@/lib/queries";
 
 export default async function BuilderProfilePage({
