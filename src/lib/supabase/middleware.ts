@@ -1,7 +1,17 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
-const PROTECTED_PATHS = ["/home", "/projects", "/help", "/discover", "/profile"];
+// /reset-password is deliberately absent: it handles a missing session itself
+// with an "expired link" screen, which is clearer than a silent bounce to login.
+const PROTECTED_PATHS = [
+  "/home",
+  "/projects",
+  "/help",
+  "/discover",
+  "/profile",
+  "/partnerships",
+  "/builders",
+];
 
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });

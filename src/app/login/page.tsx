@@ -7,7 +7,8 @@ import { signInWithEmail, signInWithGoogle } from "@/lib/actions/auth";
 
 export const metadata: Metadata = {
   title: "Log In | Sevlab",
-  description: "Log in to your Sevlab account and continue building with the African developer community.",
+  description:
+    "Log in to your Sevlab account and keep building with builders and creators worldwide.",
 };
 
 export default async function LoginPage({
@@ -35,14 +36,31 @@ export default async function LoginPage({
         ) : null}
 
         <form action={signInWithEmail} className="mt-8 space-y-4">
-          <Input type="email" name="email" placeholder="Email address" required />
           <Input
-            type="password"
-            name="password"
-            placeholder="Password"
+            type="email"
+            name="email"
+            placeholder="Email address"
+            autoComplete="email"
             required
-            minLength={6}
           />
+          <div className="space-y-2">
+            <Input
+              type="password"
+              name="password"
+              placeholder="Password"
+              autoComplete="current-password"
+              required
+              minLength={6}
+            />
+            <div className="flex justify-end">
+              <Link
+                href="/forgot-password"
+                className="text-xs text-[var(--muted-foreground)] underline underline-offset-4 transition hover:text-white"
+              >
+                Forgot your password?
+              </Link>
+            </div>
+          </div>
           <Button className="w-full" type="submit">
             Log In
           </Button>
