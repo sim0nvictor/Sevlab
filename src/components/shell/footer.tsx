@@ -117,7 +117,7 @@ export function AppFooter() {
 
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/8 pt-6 text-xs text-[var(--muted-foreground)] sm:flex-row">
           <p>
-            \u00A9 {new Date().getFullYear()} {SITE_NAME}. Built for builders
+            &copy; {new Date().getFullYear()} {SITE_NAME}. Built for builders
             everywhere.
           </p>
         </div>
