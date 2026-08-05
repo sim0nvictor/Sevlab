@@ -5,17 +5,17 @@ import { usePathname } from "next/navigation";
 import {
   DiscoverIcon,
   FeedIcon,
-  FolderIcon,
   HelpIcon,
   ProfileIcon,
+  SparkIcon,
 } from "@/components/icons";
 import { cn } from "@/lib/utils";
 
 const items = [
   { href: "/home", label: "Feed", icon: FeedIcon },
-  { href: "/projects/new", label: "Projects", icon: FolderIcon },
   { href: "/help", label: "Help", icon: HelpIcon },
   { href: "/discover", label: "Discover", icon: DiscoverIcon },
+  { href: "/partnerships", label: "Partners", icon: SparkIcon },
   { href: "/profile", label: "Profile", icon: ProfileIcon },
 ];
 
@@ -26,7 +26,8 @@ export function MobileNav() {
     <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-[rgba(7,10,21,0.92)] px-2 py-2 backdrop-blur md:hidden">
       <div className="mx-auto grid max-w-screen-sm grid-cols-5 gap-1">
         {items.map((item) => {
-          const active = pathname === item.href;
+          const active =
+            pathname === item.href || pathname.startsWith(`${item.href}/`);
           const Icon = item.icon;
 
           return (

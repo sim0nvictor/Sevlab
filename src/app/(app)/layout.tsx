@@ -4,6 +4,7 @@ import { MobileNav } from "@/components/shell/mobile-nav";
 import { Navbar } from "@/components/shell/navbar";
 import { Sidebar } from "@/components/shell/sidebar";
 import { signOut } from "@/lib/actions/auth";
+import { getCommunityStats } from "@/lib/queries";
 import { createClient } from "@/lib/supabase/server";
 
 export default async function AppLayout({
@@ -23,17 +24,25 @@ export default async function AppLayout({
     redirect("/login");
   }
 
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("name, role, country")
-    .eq("id", user.id)
-    .single();
+  // maybeSingle() so a missing profile row renders the shell instead of
+  // throwing, and real community counts replace the old placeholder numbers.
+  const [profileResult, stats] = await Promise.all([
+    supabase
+      .from("profiles")
+      .select("name, role, country")
+      .eq("id", user.id)
+      .maybeSingle(),
+    getCommunityStats(),
+  ]);
+
+  const profile = profileResult.data;
 
   return (
     <div className="min-h-screen md:grid md:grid-cols-[260px_1fr]">
       <Sidebar
         userName={profile?.name ?? user.email ?? "Builder"}
         userRole={profile?.role ?? ""}
+        stats={stats}
         onSignOut={signOut}
       />
       <div className="min-w-0">

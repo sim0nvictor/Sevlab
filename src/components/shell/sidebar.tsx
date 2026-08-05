@@ -9,6 +9,7 @@ import {
   FolderIcon,
   HelpIcon,
   ProfileIcon,
+  SparkIcon,
 } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -18,16 +19,25 @@ const items = [
   { href: "/projects/new", label: "Projects", icon: FolderIcon },
   { href: "/help", label: "Help", icon: HelpIcon },
   { href: "/discover", label: "Discover", icon: DiscoverIcon },
+  { href: "/partnerships", label: "Partnerships", icon: SparkIcon },
   { href: "/profile", label: "Profile", icon: ProfileIcon },
 ];
+
+type SidebarStats = {
+  projects: number;
+  builders: number;
+  openQuestions: number;
+  partnerships: number;
+};
 
 type SidebarProps = {
   userName?: string;
   userRole?: string;
+  stats?: SidebarStats;
   onSignOut?: () => void | Promise<void>;
 };
 
-export function Sidebar({ userName, userRole, onSignOut }: SidebarProps) {
+export function Sidebar({ userName, userRole, stats, onSignOut }: SidebarProps) {
   const pathname = usePathname();
 
   return (
@@ -47,7 +57,8 @@ export function Sidebar({ userName, userRole, onSignOut }: SidebarProps) {
 
       <nav className="mt-6 space-y-2">
         {items.map((item) => {
-          const active = pathname === item.href;
+          const active =
+            pathname === item.href || pathname.startsWith(`${item.href}/`);
           const Icon = item.icon;
 
           return (
@@ -79,25 +90,31 @@ export function Sidebar({ userName, userRole, onSignOut }: SidebarProps) {
       </div>
 
       <div className="mt-auto space-y-4">
-        <div className="rounded-[28px] border border-white/8 bg-white/[0.03] p-5">
-          <p className="text-xs uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
-            Community
-          </p>
-          <div className="mt-3 space-y-3 text-sm text-white">
-            <div className="flex items-center justify-between">
-              <span>Builders active</span>
-              <span>1.2k</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span>Help posts solved</span>
-              <span>342</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span>Countries represented</span>
-              <span>19</span>
+        {stats ? (
+          <div className="rounded-[28px] border border-white/8 bg-white/[0.03] p-5">
+            <p className="text-xs uppercase tracking-[0.18em] text-[var(--muted-foreground)]">
+              Community
+            </p>
+            <div className="mt-3 space-y-3 text-sm text-white">
+              <div className="flex items-center justify-between">
+                <span>Builders</span>
+                <span>{stats.builders}</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span>Projects shared</span>
+                <span>{stats.projects}</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span>Open questions</span>
+                <span>{stats.openQuestions}</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span>Partnerships formed</span>
+                <span>{stats.partnerships}</span>
+              </div>
             </div>
           </div>
-        </div>
+        ) : null}
 
         {onSignOut ? (
           <form action={onSignOut}>
