@@ -3,6 +3,12 @@ export const SITE_NAME = "Sevlab";
 export const SITE_TAGLINE = "Build. Share. Find partners.";
 
 /**
+ * Short audience line, used under the wordmark, in the navbar pill, and in the
+ * footer. Kept here so the narrative lives in exactly one place.
+ */
+export const SITE_AUDIENCE = "Builders worldwide";
+
+/**
  * The canonical description of Sevlab.
  *
  * Imported by the root metadata, the landing page, and the Open Graph and

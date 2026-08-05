@@ -1,13 +1,21 @@
 import Link from "next/link";
+import { SITE_DESCRIPTION_SHORT, SITE_NAME } from "@/lib/site-meta";
 
+/*
+ * Every link here points at a route that actually exists. The previous version
+ * linked to /help#faq, /help#support, /help#privacy and /help#terms, none of
+ * which are real anchors, so all four did nothing when clicked.
+ */
 const footerLinks = {
-  help: [
-    { label: "Get Help", href: "/help" },
-    { label: "FAQ", href: "/help#faq" },
+  explore: [
+    { label: "Feed", href: "/home" },
+    { label: "Discover builders", href: "/discover" },
+    { label: "Partnerships", href: "/partnerships" },
   ],
-  support: [
-    { label: "Support", href: "/help#support" },
-    { label: "Contact Us", href: "mailto:sevmediax@gmail.com" },
+  help: [
+    { label: "Browse questions", href: "/help" },
+    { label: "Ask for help", href: "/help/new" },
+    { label: "Post a project", href: "/projects/new" },
   ],
 };
 
@@ -21,19 +29,19 @@ export function AppFooter() {
             <div className="flex items-center gap-2">
               <div className="h-6 w-6 rounded-md bg-[var(--accent)]" />
               <span className="font-[var(--font-heading)] text-lg font-semibold text-white">
-                Sevlab
+                {SITE_NAME}
               </span>
             </div>
             <p className="mt-2 text-sm text-[var(--muted-foreground)]">
-              A community for African builders to share projects, get help, and collaborate.
+              {SITE_DESCRIPTION_SHORT}
             </p>
           </div>
 
-          {/* Get Help */}
+          {/* Explore */}
           <div>
-            <h3 className="text-sm font-medium text-white">Get Help</h3>
+            <h3 className="text-sm font-medium text-white">Explore</h3>
             <ul className="mt-3 space-y-2">
-              {footerLinks.help.map((link) => (
+              {footerLinks.explore.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
@@ -46,11 +54,11 @@ export function AppFooter() {
             </ul>
           </div>
 
-          {/* Support */}
+          {/* Get Help */}
           <div>
-            <h3 className="text-sm font-medium text-white">Support</h3>
+            <h3 className="text-sm font-medium text-white">Get Help</h3>
             <ul className="mt-3 space-y-2">
-              {footerLinks.support.map((link) => (
+              {footerLinks.help.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
@@ -108,15 +116,10 @@ export function AppFooter() {
         </div>
 
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/8 pt-6 text-xs text-[var(--muted-foreground)] sm:flex-row">
-          <p>© {new Date().getFullYear()} Sevlab. Built for African builders.</p>
-          <div className="flex gap-4">
-            <Link href="/help#privacy" className="hover:text-white">
-              Privacy
-            </Link>
-            <Link href="/help#terms" className="hover:text-white">
-              Terms
-            </Link>
-          </div>
+          <p>
+            \u00A9 {new Date().getFullYear()} {SITE_NAME}. Built for builders
+            everywhere.
+          </p>
         </div>
       </div>
     </footer>

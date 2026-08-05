@@ -1,5 +1,6 @@
 import Image from "next/image";
 import sevlabLogo from "@/assets/sevlab.png";
+import { SITE_AUDIENCE, SITE_NAME } from "@/lib/site-meta";
 import { cn } from "@/lib/utils";
 
 type BrandLogoProps = {
@@ -32,9 +33,9 @@ export function BrandLogo({
       </div>
       {showWordmark ? (
         <div>
-          <div className="text-lg font-semibold text-white">Sevlab</div>
+          <div className="text-lg font-semibold text-white">{SITE_NAME}</div>
           <div className="text-sm text-[var(--muted-foreground)]">
-            African builders
+            {SITE_AUDIENCE}
           </div>
         </div>
       ) : null}
