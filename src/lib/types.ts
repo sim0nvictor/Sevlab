@@ -14,6 +14,7 @@ export type BuilderProfile = {
   timezone: string | null;
   websiteUrl: string | null;
   githubUrl: string | null;
+  avatarUrl: string | null;
 };
 
 export type Project = {
@@ -132,6 +133,7 @@ export function mapProfile(row: Row | null | undefined): BuilderProfile | null {
     timezone: nullableStr(row.timezone),
     websiteUrl: nullableStr(row.website_url),
     githubUrl: nullableStr(row.github_url),
+    avatarUrl: nullableStr(row.avatar_url),
   };
 }
 

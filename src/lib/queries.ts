@@ -15,7 +15,7 @@ import {
 } from "@/lib/types";
 
 const PROFILE_FIELDS =
-  "id, name, role, country, skills, goals, bio, open_to_collaborate, looking_for, timezone, website_url, github_url";
+  "id, name, role, country, skills, goals, bio, open_to_collaborate, looking_for, timezone, website_url, github_url, avatar_url";
 
 /** The signed-in auth user, or null. Never throws. */
 export async function getCurrentUser() {

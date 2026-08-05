@@ -11,6 +11,7 @@ import {
   ProfileIcon,
   SparkIcon,
 } from "@/components/icons";
+import { Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -33,11 +34,18 @@ type SidebarStats = {
 type SidebarProps = {
   userName?: string;
   userRole?: string;
+  userAvatarUrl?: string | null;
   stats?: SidebarStats;
   onSignOut?: () => void | Promise<void>;
 };
 
-export function Sidebar({ userName, userRole, stats, onSignOut }: SidebarProps) {
+export function Sidebar({
+  userName,
+  userRole,
+  userAvatarUrl = null,
+  stats,
+  onSignOut,
+}: SidebarProps) {
   const pathname = usePathname();
 
   return (
@@ -47,12 +55,20 @@ export function Sidebar({ userName, userRole, stats, onSignOut }: SidebarProps) 
       </Link>
 
       {userName ? (
-        <div className="mt-6 rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-3">
-          <p className="text-sm font-medium text-white">{userName}</p>
-          {userRole ? (
-            <p className="text-xs text-[var(--muted-foreground)]">{userRole}</p>
-          ) : null}
-        </div>
+        <Link
+          href="/profile"
+          className="mt-6 flex items-center gap-3 rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-3 transition hover:border-white/20"
+        >
+          <Avatar name={userName} avatarUrl={userAvatarUrl} size="sm" />
+          <span className="min-w-0">
+            <span className="block truncate text-sm font-medium text-white">{userName}</span>
+            {userRole ? (
+              <span className="block truncate text-xs text-[var(--muted-foreground)]">
+                {userRole}
+              </span>
+            ) : null}
+          </span>
+        </Link>
       ) : null}
 
       <nav className="mt-6 space-y-2">

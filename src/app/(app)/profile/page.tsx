@@ -1,6 +1,7 @@
 import { type Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { CheckboxGroup } from "@/components/ui/checkbox-group";
 import { Input } from "@/components/ui/input";
@@ -46,6 +47,35 @@ export default async function ProfilePage({
         </p>
 
         <form action={updateProfile} className="mt-6 space-y-5">
+          <div className="flex flex-wrap items-start gap-4 rounded-2xl border border-white/8 bg-black/20 p-4">
+            <Avatar name={profile.name} avatarUrl={profile.avatarUrl} size="xl" />
+            <div className="min-w-0 flex-1 space-y-2">
+              <label className="grid gap-2 text-sm text-[var(--muted-foreground)]">
+                <span>Profile picture</span>
+                <input
+                  type="file"
+                  name="avatar"
+                  accept="image/png,image/jpeg,image/webp,image/gif"
+                  className="block w-full cursor-pointer rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white file:mr-3 file:cursor-pointer file:rounded-xl file:border-0 file:bg-white/10 file:px-3 file:py-1.5 file:text-sm file:text-white"
+                />
+              </label>
+              <p className="text-xs text-[var(--muted-foreground)]">
+                PNG, JPEG, WebP, or GIF. Up to 2 MB. Leave empty to keep your current picture.
+              </p>
+              {profile.avatarUrl ? (
+                <label className="flex items-center gap-2 text-xs text-[var(--muted-foreground)]">
+                  <input
+                    type="checkbox"
+                    name="removeAvatar"
+                    value="1"
+                    className="h-4 w-4 rounded border-white/20 bg-white/5"
+                  />
+                  Remove my current picture
+                </label>
+              ) : null}
+            </div>
+          </div>
+
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="grid gap-2 text-sm text-[var(--muted-foreground)]">
               <span>Name</span>

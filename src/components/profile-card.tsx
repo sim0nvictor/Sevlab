@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Avatar } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import type { BuilderProfile } from "@/lib/types";
 
@@ -13,19 +14,11 @@ export function ProfileCard({
   currentUserId?: string | null;
 }) {
   const isSelf = currentUserId !== null && currentUserId === profile.id;
-  const initials = profile.name
-    .split(" ")
-    .map((part) => part[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
 
   return (
     <article className="surface-card p-5">
       <div className="flex items-start gap-4">
-        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent)]/20 text-lg font-semibold text-white">
-          {initials}
-        </div>
+        <Avatar name={profile.name} avatarUrl={profile.avatarUrl} size="lg" />
         <div className="min-w-0 flex-1">
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0">

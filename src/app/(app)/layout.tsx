@@ -29,7 +29,7 @@ export default async function AppLayout({
   const [profileResult, stats] = await Promise.all([
     supabase
       .from("profiles")
-      .select("name, role, country")
+      .select("name, role, country, avatar_url")
       .eq("id", user.id)
       .maybeSingle(),
     getCommunityStats(),
@@ -42,6 +42,7 @@ export default async function AppLayout({
       <Sidebar
         userName={profile?.name ?? user.email ?? "Builder"}
         userRole={profile?.role ?? ""}
+        userAvatarUrl={profile?.avatar_url ?? null}
         stats={stats}
         onSignOut={signOut}
       />

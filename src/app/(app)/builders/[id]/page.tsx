@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProjectCard } from "@/components/project-card";
+import { Avatar } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { getBuilder, getCurrentUser, getProjects } from "@/lib/queries";
 
@@ -20,13 +21,6 @@ export default async function BuilderProfilePage({
   ]);
   const isSelf = user?.id === profile.id;
 
-  const initials = profile.name
-    .split(" ")
-    .map((part) => part[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-
   return (
     <div className="mx-auto max-w-3xl space-y-5">
       <Link
@@ -38,9 +32,7 @@ export default async function BuilderProfilePage({
 
       <div className="surface-card p-5 sm:p-6">
         <div className="flex flex-wrap items-start gap-4">
-          <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent)]/20 text-xl font-semibold text-white">
-            {initials}
-          </div>
+          <Avatar name={profile.name} avatarUrl={profile.avatarUrl} size="xl" />
           <div className="min-w-0 flex-1">
             <h1 className="font-[var(--font-heading)] text-2xl font-semibold text-white">
               {profile.name}
