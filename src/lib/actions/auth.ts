@@ -3,8 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+import { getAuthCallbackUrl } from "@/lib/site-url";
 
 export async function signUpWithEmail(formData: FormData) {
   const supabase = await createClient();
@@ -18,7 +17,7 @@ export async function signUpWithEmail(formData: FormData) {
     password,
     options: {
       data: { full_name: name },
-      emailRedirectTo: `${siteUrl}/auth/callback`,
+      emailRedirectTo: getAuthCallbackUrl(),
     },
   });
 
@@ -51,7 +50,7 @@ export async function signInWithGoogle() {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
-      redirectTo: `${siteUrl}/auth/callback`,
+      redirectTo: getAuthCallbackUrl(),
       queryParams: {
         access_type: "offline",
         prompt: "consent",
